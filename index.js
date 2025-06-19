@@ -1,3 +1,7 @@
+const cors = require('cors');
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
