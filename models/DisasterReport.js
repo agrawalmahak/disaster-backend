@@ -18,22 +18,24 @@ const disasterReportSchema = new mongoose.Schema({
     coordinates: {
       type: [Number], // [longitude, latitude]
       required: true
-    }
+    },
   },
-  reportedAt: {
-    type: Date,
-    default: Date.now
-  },
-  reporterName: {
-    type: String,
-    default: "Anonymous"
-  },
-  status: {
-    type: String,
-    enum: ['unresolved', 'resolved'],
-    default: 'unresolved'
-  }
-});
+    reporterName: { type: String, required: true }
+  },{ timestamps: true });
+  // reportedAt: {
+  //   type: Date,
+  //   default: Date.now
+  // },
+  // reporterName: {
+  //   type: String,
+  //   default: "Anonymous"
+  // },
+  // status: {
+  //   type: String,
+  //   enum: ['unresolved', 'resolved'],
+  //   default: 'unresolved'
+  // }
+// });
 
 // Geospatial index for nearby search
 disasterReportSchema.index({ coordinates: '2dsphere' });
