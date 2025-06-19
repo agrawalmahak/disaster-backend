@@ -1,4 +1,6 @@
 const cors = require('cors');
+
+const app = express();
 app.use(cors({
   origin: 'http://localhost:3000'
 }));
@@ -9,7 +11,7 @@ const connectDB = require('./config/db');
 dotenv.config();           // Load .env
 connectDB();               // Connect to MongoDB
 
-const app = express();
+
 app.use(express.json());   // Enable JSON body parsing
 
 // ✅ Add root route BEFORE listen
