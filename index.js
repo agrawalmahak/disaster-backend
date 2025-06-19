@@ -1,12 +1,12 @@
 const cors = require('cors');
-
+const express = require('express');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
 const app = express();
 app.use(cors({
   origin: 'http://localhost:3000'
 }));
-const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+
 
 dotenv.config();           // Load .env
 connectDB();               // Connect to MongoDB
